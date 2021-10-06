@@ -52,14 +52,14 @@ router.use(function(req, res){
 
 app.use('/',router);
 
-/*const options = {
+const options = {
   key: fs.readFileSync('/etc/letsencrypt/live/higher-order-games.net/privkey.pem'),
   cert: fs.readFileSync('/etc/letsencrypt/live/higher-order-games.net/cert.pem'),
   ca: fs.readFileSync('/etc/letsencrypt/live/higher-order-games.net/chain.pem', 'utf8')
-};*/
-http.createServer(app);
+};
+//http.createServer(app);
 
-//https.createServer(options, app).listen(port);
+https.createServer(options, app).listen(port);
 
-app.listen(port);
+//app.listen(port);
 console.log('Magin happens on port ' + port);
