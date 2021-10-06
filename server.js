@@ -42,7 +42,7 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 1234;
 var router = express.Router();
 
-app.get('/', function(req, res){
+app.get('/index', function(req, res){
   res.sendFile('src/index.html', {root: __dirname })
 });
 
