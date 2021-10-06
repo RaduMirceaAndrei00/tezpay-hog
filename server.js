@@ -18,7 +18,7 @@ app.use(cors());
 
 const { createProxyMiddleware } = require('http-proxy-middleware');
 app.use('/api', createProxyMiddleware({ 
-    target: 'http://localhost:443/', //original url
+    target: 'http://localhost:1234/', //original url
     changeOrigin: true, 
     //secure: false,
     onProxyRes: function (proxyRes, req, res) {
@@ -52,14 +52,14 @@ router.use(function(req, res){
 
 app.use('/',router);
 
-const options = {
+/*const options = {
   key: fs.readFileSync('/etc/letsencrypt/live/higher-order-games.net/privkey.pem'),
   cert: fs.readFileSync('/etc/letsencrypt/live/higher-order-games.net/cert.pem'),
   ca: fs.readFileSync('/etc/letsencrypt/live/higher-order-games.net/chain.pem', 'utf8')
-};
-//http.createServer(app);
+};*/
+http.createServer(app);
 
-https.createServer(options, app).listen(port);
+//https.createServer(options, app).listen(port);
 
-//app.listen(port);
+app.listen(port);
 console.log('Magin happens on port ' + port);
