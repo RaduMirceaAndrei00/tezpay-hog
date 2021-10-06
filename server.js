@@ -42,8 +42,12 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 1234;
 var router = express.Router();
 
-app.get('/index', function(req, res){
-  res.sendFile('src/index.html', {root: __dirname })
+router.use(function(req, res){
+  let url = req.url.split('?');
+  let str = url[0];
+  if(str.includes("..")) str = "";
+  console.log(str);
+  res.sendFile(path.join(__dirname+'/src/' + str));
 });
 
 app.use('/',router);
