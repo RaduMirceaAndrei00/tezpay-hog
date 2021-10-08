@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "node server.js",
     "clean": "rm -rf dist",
-    "build": "npm run clean && parcel build ./src/index.html",
+    "build": "npm run clean && parcel build ./src/index.html --https",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,6 +32,12 @@
   "dependencies": {
     "@taquito/taquito": "^9.2.0",
     "@temple-wallet/dapp": "^4.0.0",
+    "async-mutex": "^0.3.2",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "parcel": "^2.0.0-rc.0"
   }
 }
